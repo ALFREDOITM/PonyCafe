@@ -11,7 +11,7 @@
 
     <!--on below line we are creating
         a linear layout for grid view item-->
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -20,8 +20,8 @@
              a simple image view-->
         <ImageView
             android:id="@+id/idIvGrid"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:padding="4dp"
@@ -33,13 +33,14 @@
             android:id="@+id/idTvGrid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="bottom"
             android:layout_margin="5dp"
             android:padding="4dp"
             android:text="@string/app_name"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/white"
+            android:background="#55000000"/>
 
-    </LinearLayout>
+    </FrameLayout>
 
 </androidx.cardview.widget.CardView>
