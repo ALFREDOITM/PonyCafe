@@ -1,6 +1,7 @@
 package org.example.ponycafe
 
 import android.os.Bundle
+import android.view.Menu
 import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.Toast
@@ -43,5 +44,10 @@ class StoreMainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_user, menu)
+        return true
     }
 }

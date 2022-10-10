@@ -24,7 +24,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".StoreMainActivity"></activity>
+        <activity android:name=".StoreMainActivity"
+            android:theme="@style/Theme2.UserInterface"></activity>
     </application>
 
 </manifest>
