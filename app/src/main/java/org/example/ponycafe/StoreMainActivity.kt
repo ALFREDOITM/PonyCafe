@@ -6,7 +6,6 @@ import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 
 class StoreMainActivity : AppCompatActivity() {
     lateinit var courseGRV: GridView
@@ -34,7 +33,7 @@ class StoreMainActivity : AppCompatActivity() {
     }
 
     private fun obtenerElementosGridView(): GridAdapter {
-        courseList = ArrayList<GridViewModal>()
+        courseList = ArrayList()
 
         // on below line we are adding data to
         // our course list with image and course name.
