@@ -10,7 +10,7 @@ import android.widget.TextView
 
 // on below line we are creating an
 // adapter class for our grid view.
-internal class GridAdapter(
+class GridAdapter(
     // on below line we are creating two
     // variables for course list and context
     private val courseList: List<GridViewModal>,
