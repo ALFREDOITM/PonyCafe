@@ -27,6 +27,7 @@
         <activity
             android:name=".StoreMainActivity"
             android:theme="@style/Theme2.UserInterface" />
+        <activity android:name=".SelectedItemActivity"/>
     </application>
 
 </manifest>
