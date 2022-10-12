@@ -4,19 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 
-// on below line we are creating an
-// adapter class for our grid view.
-class GridAdapter(
-    // on below line we are creating two
-    // variables for course list and context
-    private val foodList: List<GridViewModal>,
-    private val context: Context
-) :
-    BaseAdapter() {
+
+class GridAdapter(private var foodList: List<GridViewModal>, private val context: Context, private  val foodListFilter: List<GridViewModal>) : BaseAdapter(), Filterable {
     // in base adapter class we are creating variables
     // for layout inflater, course image view and course text view.
     private var layoutInflater: LayoutInflater? = null
@@ -64,5 +55,34 @@ class GridAdapter(
         foodTV.text = foodList[position].foodName
         // at last we are returning our convert view.
         return convertView
+    }
+
+    override fun getFilter(): Filter {
+        val filter: Filter = object : Filter() {
+            override fun performFiltering(p0: CharSequence?): FilterResults? {
+                val filterResults: FilterResults = FilterResults()
+                if (p0 == null || (p0.length) == 0) {
+                    filterResults.count = foodListFilter.size
+                    filterResults.values = foodListFilter
+                }else{
+                    val searchChr: String = p0.toString().toLowerCase()
+                    var searchResult: List<GridViewModal> = ArrayList()
+                    for (gridViewModal: GridViewModal in foodListFilter) {
+                        if(gridViewModal.foodName.contains(searchChr)){
+                            searchResult += gridViewModal
+                        }
+                    }
+                    filterResults.count = searchResult.size
+                    filterResults.values = searchResult
+                }
+                return filterResults
+            }
+
+            override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
+                foodList = p1?.values as List<GridViewModal>
+                notifyDataSetChanged()
+            }
+        }
+        return filter
     }
 }

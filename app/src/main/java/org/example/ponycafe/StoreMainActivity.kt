@@ -2,12 +2,12 @@ package org.example.ponycafe
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.widget.AdapterView
 import android.widget.GridView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import org.json.JSONObject
+import android.widget.SearchView
 
 class StoreMainActivity : AppCompatActivity() {
     lateinit var foodGRV: GridView
@@ -36,6 +36,21 @@ class StoreMainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_user, menu)
+        val menuItem = menu.findItem(R.id.menu_buscar)
+        val searchView: SearchView = menuItem.actionView as SearchView
+        searchView.maxWidth = Int.MAX_VALUE
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                Log.e("TAG", " new text ==> $newText")
+                var gridAdapter: GridAdapter
+
+                return true
+            }
+        })
         return true
     }
 
@@ -50,6 +65,6 @@ class StoreMainActivity : AppCompatActivity() {
         foodList = foodList + GridViewModal("Tacos", R.drawable.taco)
         foodList = foodList + GridViewModal("Pizza", R.drawable.pizza)
 
-        return GridAdapter(foodList = foodList, this@StoreMainActivity)
+        return GridAdapter(foodList = foodList, this@StoreMainActivity, foodList)
     }
 }
