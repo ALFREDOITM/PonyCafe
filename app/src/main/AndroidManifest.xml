@@ -26,6 +26,7 @@
 
         <activity android:name=".StoreMainActivity"></activity>
         <activity android:name=".NewUserActivity"></activity>
+        <activity android:name=".SelectedItemActivity"></activity>
     </application>
 
 </manifest>
