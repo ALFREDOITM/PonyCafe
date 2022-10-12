@@ -18,6 +18,24 @@
             android:layout_gravity="center"
             android:src="@drawable/user2"
             />
+        <TextView
+            android:id="@+id/tvCredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:text="Pony Creditos:"
+            android:textSize="18sp" />
+        <EditText
+            android:id="@+id/etCredit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="500"
+            android:inputType="text"
+            android:maxLines="1"
+            android:clickable="false"/>
 
         <TextView
             android:id="@+id/tvName"
@@ -36,7 +54,8 @@
             android:layout_marginRight="15dp"
             android:hint="Nombre(s)"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:clickable="false"/>
 
         <TextView
             android:id="@+id/tvFatherLastName"
@@ -55,7 +74,8 @@
             android:layout_marginRight="15dp"
             android:hint="Apellido Paterno"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:clickable="false"/>
 
         <TextView
             android:id="@+id/tvMotherLastName"
@@ -74,7 +94,8 @@
             android:layout_marginRight="15dp"
             android:hint="Apellido Materno"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:clickable="false"/>
 
         <TextView
             android:id="@+id/tvBirthDate"
@@ -88,7 +109,8 @@
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:clickable="false"/>
 
         <TextView
             android:id="@+id/tvUser"
@@ -109,27 +131,9 @@
             android:layout_marginRight="15dp"
             android:hint="Usuario"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:clickable="false"/>
 
-        <TextView
-            android:id="@+id/tvPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:text="Contraseña (al menos 8 carácteres)"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:maxLines="1" />
 
         <TextView
             android:id="@+id/tvUserType"
@@ -145,7 +149,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
+            android:layout_marginRight="15dp"
+            android:clickable="false">
 
             <RadioButton
                 android:layout_width="match_parent"
@@ -188,7 +193,8 @@
             android:layout_marginRight="15dp"
             android:hint="Número de Control"
             android:inputType="text"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:clickable="false"/>
 
         <TextView
             android:id="@+id/tvEmail"
@@ -209,15 +215,30 @@
             android:layout_marginBottom="25dp"
             android:hint="mail@pony.com"
             android:inputType="textEmailAddress"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:clickable="false"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/rojo_tec"
             android:onClick="launchLogin"
-            android:text="Registrar" />
+            android:text="login" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/rojo_tec"
+            android:text="Modificar Datos"
+            android:layout_gravity="center"
+            />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/rojo_tec"
+            android:text="Cambiar Contraseña"
+            android:layout_gravity="center"
+            />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
