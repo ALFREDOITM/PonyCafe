@@ -17,7 +17,8 @@
         android:id="@+id/menu_buscar"
         android:icon="@android:drawable/ic_menu_search"
         android:orderInCategory="3"
-        app:showAsAction="always|collapseActionView"/>
+        app:showAsAction="always"
+        app:actionViewClass="android.widget.SearchView"/>
     <item android:title="UserProfile"
         android:id="@+id/user_profile"
         android:icon="@drawable/icon_user_profile"
