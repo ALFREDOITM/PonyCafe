@@ -13,19 +13,19 @@ import android.widget.TextView
 class GridAdapter(
     // on below line we are creating two
     // variables for course list and context
-    private val courseList: List<GridViewModal>,
+    private val foodList: List<GridViewModal>,
     private val context: Context
 ) :
     BaseAdapter() {
     // in base adapter class we are creating variables
     // for layout inflater, course image view and course text view.
     private var layoutInflater: LayoutInflater? = null
-    private lateinit var courseTV: TextView
-    private lateinit var courseIV: ImageView
+    private lateinit var foodTV: TextView
+    private lateinit var foodIV: ImageView
 
     // below method is use to return the count of course list
     override fun getCount(): Int {
-        return courseList.size
+        return foodList.size
     }
 
     // below function is use to return the item of grid view.
@@ -56,12 +56,12 @@ class GridAdapter(
         }
         // on below line we are initializing our course image view
         // and course text view with their ids.
-        courseIV = convertView!!.findViewById(R.id.idIvGrid)
-        courseTV = convertView!!.findViewById(R.id.idTvGrid)
+        foodIV = convertView!!.findViewById(R.id.idIvGrid)
+        foodTV = convertView!!.findViewById(R.id.idTvGrid)
         // on below line we are setting image for our course image view.
-        courseIV.setImageResource(courseList[position].courseImg)
+        foodIV.setImageResource(foodList[position].foodImg)
         // on below line we are setting text in our course text view.
-        courseTV.text = courseList[position].courseName
+        foodTV.text = foodList[position].foodName
         // at last we are returning our convert view.
         return convertView
     }

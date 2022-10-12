@@ -10,21 +10,21 @@ import androidx.appcompat.app.AppCompatActivity
 import org.json.JSONObject
 
 class StoreMainActivity : AppCompatActivity() {
-    lateinit var courseGRV: GridView
-    lateinit var courseList: List<GridViewModal>
+    lateinit var foodGRV: GridView
+    lateinit var foodList: List<GridViewModal>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store_main)
 
         //Codigo relacionado al gridview
-        courseGRV = findViewById(R.id.idGRV)
-        val courseAdapter = obtenerElementosGridView()
-        courseGRV.adapter = courseAdapter
-        courseGRV.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+        foodGRV = findViewById(R.id.idGRV)
+        val foodAdapter = obtenerElementosGridView()
+        foodGRV.adapter = foodAdapter
+        foodGRV.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             /*
             Toast.makeText(
-                applicationContext, courseList[position].courseName + " selected",
+                applicationContext, foodList[position].foodName + " selected",
                 Toast.LENGTH_SHORT
             ).show()
             */
@@ -40,16 +40,16 @@ class StoreMainActivity : AppCompatActivity() {
     }
 
     private fun obtenerElementosGridView(): GridAdapter {
-        courseList = ArrayList()
+        foodList = ArrayList()
 
         // on below line we are adding data to
-        // our course list with image and course name.
-        courseList = courseList + GridViewModal("Chilaquiles", R.drawable.chilaquiles)
-        courseList = courseList + GridViewModal("Enfrijoladas", R.drawable.enfrijoladas)
-        courseList = courseList + GridViewModal("Sopes", R.drawable.sopes)
-        courseList = courseList + GridViewModal("Tacos", R.drawable.taco)
-        courseList = courseList + GridViewModal("Pizza", R.drawable.pizza)
+        // our food list with image and food name.
+        foodList = foodList + GridViewModal("Chilaquiles", R.drawable.chilaquiles)
+        foodList = foodList + GridViewModal("Enfrijoladas", R.drawable.enfrijoladas)
+        foodList = foodList + GridViewModal("Sopes", R.drawable.sopes)
+        foodList = foodList + GridViewModal("Tacos", R.drawable.taco)
+        foodList = foodList + GridViewModal("Pizza", R.drawable.pizza)
 
-        return GridAdapter(courseList = courseList, this@StoreMainActivity)
+        return GridAdapter(foodList = foodList, this@StoreMainActivity)
     }
 }

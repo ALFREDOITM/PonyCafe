@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StoreMainActivity"
-    android:layout_margin="5dp">
+    tools:context=".StoreMainActivity">
 
     <GridView
         android:id="@+id/idGRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="5dp"
         android:horizontalSpacing="6dp"
         android:numColumns="auto_fit"
         android:verticalSpacing="6dp" />
