@@ -24,12 +24,9 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".StoreMainActivity"
-            android:theme="@style/Theme2.UserInterface" />
-        <activity
-            android:name=".SelectedItemActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+        <activity android:name=".StoreMainActivity"></activity>
+        <activity android:name=".NewUserActivity"></activity>
+        <activity android:name=".SelectedItemActivity"></activity>
     </application>
 
 </manifest>
