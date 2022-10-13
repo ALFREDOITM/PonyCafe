@@ -24,9 +24,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StoreMainActivity" />
+        <activity
+            android:name=".StoreMainActivity"
+            android:theme="@style/Theme2.UserInterface"/>
         <activity android:name=".NewUserActivity" />
-        <activity android:name=".SelectedItemActivity" />
+        <activity
+            android:name=".SelectedItemActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
         <activity android:name=".UserProfile" />
         <activity android:name=".ChangePassword"/>
     </application>
