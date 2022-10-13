@@ -27,6 +27,7 @@
         <activity android:name=".StoreMainActivity"></activity>
         <activity android:name=".NewUserActivity"></activity>
         <activity android:name=".SelectedItemActivity"></activity>
+        <activity android:name=".UserProfile"></activity>
     </application>
 
 </manifest>
