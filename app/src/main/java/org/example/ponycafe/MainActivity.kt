@@ -28,4 +28,8 @@ class MainActivity : AppCompatActivity() {
         val start = Intent(this, NewUserActivity::class.java)
         startActivity(start)
     }
+    fun userProfile(view: View?) {
+        val start = Intent(this, UserProfile::class.java)
+        startActivity(start)
+    }
 }

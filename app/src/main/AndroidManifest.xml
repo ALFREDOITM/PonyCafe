@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PonyCafe"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -23,10 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".StoreMainActivity"></activity>
-        <activity android:name=".NewUserActivity"></activity>
-        <activity android:name=".SelectedItemActivity"></activity>
+        <activity android:name=".StoreMainActivity" />
+        <activity android:name=".NewUserActivity" />
+        <activity android:name=".SelectedItemActivity" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".ChangePassword"/>
     </application>
 
 </manifest>

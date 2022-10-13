@@ -17,6 +17,7 @@
             android:layout_height="150dp"
             android:layout_gravity="center"
             android:src="@drawable/user2"
+            android:layout_marginTop="15dp"
             />
         <TextView
             android:id="@+id/tvCredit"
@@ -35,7 +36,10 @@
             android:hint="500"
             android:inputType="text"
             android:maxLines="1"
-            android:clickable="false"/>
+            android:clickable="false"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:focusableInTouchMode="false"/>
 
         <TextView
             android:id="@+id/tvName"
@@ -55,7 +59,10 @@
             android:hint="Nombre(s)"
             android:inputType="text"
             android:maxLines="1"
-            android:clickable="false"/>
+            android:clickable="false"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:focusableInTouchMode="false"/>
 
         <TextView
             android:id="@+id/tvFatherLastName"
@@ -75,7 +82,10 @@
             android:hint="Apellido Paterno"
             android:inputType="text"
             android:maxLines="1"
-            android:clickable="false"/>
+            android:clickable="false"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:focusableInTouchMode="false"/>
 
         <TextView
             android:id="@+id/tvMotherLastName"
@@ -95,22 +105,10 @@
             android:hint="Apellido Materno"
             android:inputType="text"
             android:maxLines="1"
-            android:clickable="false"/>
-
-        <TextView
-            android:id="@+id/tvBirthDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:text="Fecha de Nacimiento:"
-            android:textSize="18sp" />
-
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="false"/>
+            android:clickable="false"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:focusableInTouchMode="false"/>
 
         <TextView
             android:id="@+id/tvUser"
@@ -132,69 +130,11 @@
             android:hint="Usuario"
             android:inputType="text"
             android:maxLines="1"
-            android:clickable="false"/>
+            android:clickable="false"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:focusableInTouchMode="false"/>
 
-
-        <TextView
-            android:id="@+id/tvUserType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:text="Tipo de Usuario:"
-            android:textSize="18sp" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:clickable="false">
-
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Estudiante Lenguas" />
-
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Estudiante Ingenieria/licenciatura" />
-
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Visitante" />
-
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Personal del Instituto" />
-
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/tvControlNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:text="Número de Control:"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/etControlNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:hint="Número de Control"
-            android:inputType="text"
-            android:maxLines="1"
-            android:clickable="false"/>
 
         <TextView
             android:id="@+id/tvEmail"
@@ -216,14 +156,11 @@
             android:hint="mail@pony.com"
             android:inputType="textEmailAddress"
             android:maxLines="1"
-            android:clickable="false"/>
+            android:clickable="false"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:focusableInTouchMode="false"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/rojo_tec"
-            android:onClick="launchLogin"
-            android:text="login" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -237,8 +174,17 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/rojo_tec"
             android:text="Cambiar Contraseña"
+            android:onClick="changePass"
             android:layout_gravity="center"
             />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/rojo_tec"
+            android:onClick="launchLogin"
+            android:text="Cerrar Sesión"
+            android:layout_gravity="center"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
