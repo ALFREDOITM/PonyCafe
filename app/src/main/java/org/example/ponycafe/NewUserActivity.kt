@@ -38,7 +38,7 @@ class NewUserActivity : AppCompatActivity() {
             "Nombre de tu primer mascota.")))
         viewBinding.spinSecureQuestions2.adapter=questions2
 
-        userTypes.addAll(Arrays.asList("Selecciona una pregunta","Estudiante Lenguas","Estudiante Ingenieria/licenciatura", "Personal del Plantel", "Visitantes"))
+        userTypes.addAll(Arrays.asList("Selecciona un tipo de usuario","Estudiante Lenguas","Estudiante Ingenieria/licenciatura", "Personal del Plantel", "Visitantes"))
         viewBinding.spinUsertype.adapter=userTypes
     }
 
