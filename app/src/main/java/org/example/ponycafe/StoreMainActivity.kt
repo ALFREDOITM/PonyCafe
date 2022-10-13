@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.AdapterView
 import android.widget.GridView
 import androidx.appcompat.app.AppCompatActivity
@@ -52,6 +54,22 @@ class StoreMainActivity : AppCompatActivity() {
             }
         })
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.user_profile -> {
+                lanzarUserProfile()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+
+        }
+    }
+
+    fun lanzarUserProfile(view: View? = null) {
+        val i = Intent(this, UserProfile::class.java)
+        startActivity(i)
     }
 
     private fun obtenerElementosGridView(): GridAdapter {
