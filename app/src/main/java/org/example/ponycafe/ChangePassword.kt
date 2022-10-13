@@ -5,18 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class UserProfile : AppCompatActivity() {
+class ChangePassword : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user_profile)
+        setContentView(R.layout.activity_change_password)
     }
     fun launchLogin(view: View?) {
         val start = Intent(this, MainActivity::class.java)
-        startActivity(start)
-    }
-
-    fun changePass(view: View?) {
-        val start = Intent(this, ChangePassword::class.java)
         startActivity(start)
     }
 }
