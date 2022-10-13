@@ -58,6 +58,10 @@ class StoreMainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.shopping_cart -> {
+                lanzarShoppingCart()
+                true
+            }
             R.id.user_profile -> {
                 lanzarUserProfile()
                 true
@@ -71,7 +75,10 @@ class StoreMainActivity : AppCompatActivity() {
         val i = Intent(this, UserProfile::class.java)
         startActivity(i)
     }
-
+    fun lanzarShoppingCart(view: View? = null) {
+        val i = Intent(this, CartActivity::class.java)
+        startActivity(i)
+    }
     private fun obtenerElementosGridView(): GridAdapter {
         foodList = ArrayList()
 

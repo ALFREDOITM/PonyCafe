@@ -30,9 +30,10 @@
         <activity android:name=".NewUserActivity" />
         <activity
             android:name=".SelectedItemActivity"
-            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+            android:theme="@style/Food"/>
         <activity android:name=".UserProfile" />
         <activity android:name=".ChangePassword"/>
+        <activity android:name=".CartActivity"/>
     </application>
 
 </manifest>
