@@ -3,18 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.186" />
+        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/drawable/ic_launcher_background.xml" value="0.186" />
+        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/drawable/icon_user_profile.xml" value="0.1525" />
         <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/drawable/splash_screen.xml" value="0.168" />
-        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/layout/activity_store_main.xml" value="0.25" />
-        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/layout/gridview_food_item.xml" value="0.1" />
+        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/layout/activity_selected_item.xml" value="0.22" />
+        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/layout/activity_store_main.xml" value="0.22" />
+        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/layout/activity_user_profile.xml" value="0.22" />
+        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/layout/gridview_food_item.xml" value="0.22" />
         <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/layout/gridview_item.xml" value="0.1" />
         <entry key="..\:/Users/narse/AndroidStudioProjects/PonyCafeA/app/src/main/res/layout/activity_change_password.xml" value="0.3625" />
-        <entry key="..\:/Users/narse/AndroidStudioProjects/PonyCafeA/app/src/main/res/layout/activity_main.xml" value="0.3859375" />
-        <entry key="..\:/Users/narse/AndroidStudioProjects/PonyCafeA/app/src/main/res/layout/activity_new_user.xml" value="0.31145833333333334" />
-        <entry key="..\:/Users/narse/AndroidStudioProjects/PonyCafeA/app/src/main/res/layout/activity_selected_item.xml" value="0.3569230769230769" />
-        <entry key="..\:/Users/narse/AndroidStudioProjects/PonyCafeA/app/src/main/res/layout/activity_store_main.xml" value="0.31145833333333334" />
-        <entry key="..\:/Users/narse/AndroidStudioProjects/PonyCafeA/app/src/main/res/layout/activity_user_profile.xml" value="0.29741019214703424" />
-        <entry key="..\:/Users/narse/AndroidStudioProjects/PonyCafeA/app/src/main/res/layout/gridview_food_item.xml" value="0.31145833333333334" />
+        <entry key="..\:/Users/alfre/AndroidStudioProjects/PonyCafe/app/src/main/res/menu/menu_user.xml" value="0.22" />
       </map>
     </option>
   </component>
