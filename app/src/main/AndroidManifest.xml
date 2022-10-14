@@ -13,9 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PonyCafe"
         tools:targetApi="31">
-        <activity
-            android:name=".RecoverPassword"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -28,14 +26,14 @@
         </activity>
         <activity
             android:name=".StoreMainActivity"
-            android:theme="@style/Theme2.UserInterface" />
+            android:theme="@style/Theme2.UserInterface"/>
         <activity android:name=".NewUserActivity" />
         <activity
             android:name=".SelectedItemActivity"
-            android:theme="@style/Food" />
+            android:theme="@style/Food"/>
         <activity android:name=".UserProfile" />
-        <activity android:name=".ChangePassword" />
-        <activity android:name=".CartActivity" />
+        <activity android:name=".ChangePassword"/>
+        <activity android:name=".CartActivity"/>
     </application>
 
 </manifest>
