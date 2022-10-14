@@ -31,9 +31,13 @@
         <activity
             android:name=".SelectedItemActivity"
             android:theme="@style/Food"/>
-        <activity android:name=".UserProfile" />
+        <activity
+            android:name=".UserProfile"
+            android:theme="@style/Theme2.UserInterface"/>
         <activity android:name=".ChangePassword"/>
-        <activity android:name=".CartActivity"/>
+        <activity
+            android:name=".CartActivity"
+            android:theme="@style/Theme2.UserInterface"/>
     </application>
 
 </manifest>

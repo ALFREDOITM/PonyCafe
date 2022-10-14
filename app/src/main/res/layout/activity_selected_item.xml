@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -39,6 +40,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/itemTV2"/>
+    <EditText
+        android:id="@+id/editTextTextMultiLine2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:hint="Agregar instrucciones: Ej. Con bistec, sin chile, etc..."
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemTV3"/>
     <Button
         android:id="@+id/itemBTN1"
         android:layout_width="wrap_content"
@@ -46,5 +58,5 @@
         android:text="Agregar al carrito"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemTV3"/>
+        app:layout_constraintTop_toBottomOf="@id/editTextTextMultiLine2"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
