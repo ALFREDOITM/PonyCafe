@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         val start = Intent(this, NewUserActivity::class.java)
         startActivity(start)
     }
-    fun userProfile(view: View?) {
-        val start = Intent(this, UserProfile::class.java)
+    fun launchRecover(view: View?) {
+        val start = Intent(this, RecoverPassword::class.java)
         startActivity(start)
     }
 }
