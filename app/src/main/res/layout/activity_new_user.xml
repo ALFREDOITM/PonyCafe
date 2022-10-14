@@ -249,7 +249,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/rojo_tec"
+                style="@style/buttonCrudStyle"
                 android:onClick="launchLogin"
                 android:text="Registrar"
                 android:layout_marginBottom="15dp"

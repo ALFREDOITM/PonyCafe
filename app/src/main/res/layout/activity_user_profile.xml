@@ -164,7 +164,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/rojo_tec"
+            style="@style/buttonCrudStyle"
             android:text="Modificar Datos"
             android:layout_gravity="center"
             />
@@ -172,7 +172,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/rojo_tec"
+            style="@style/buttonCrudStyle"
             android:text="Cambiar Contraseña"
             android:onClick="changePass"
             android:layout_gravity="center"
@@ -181,7 +181,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/rojo_tec"
+            style="@style/buttonCrudStyle"
             android:onClick="launchLogin"
             android:text="Cerrar Sesión"
             android:layout_gravity="center"/>
