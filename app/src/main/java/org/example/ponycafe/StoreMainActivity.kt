@@ -10,10 +10,12 @@ import android.widget.AdapterView
 import android.widget.GridView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.SearchView
+import android.widget.Toast
 
 class StoreMainActivity : AppCompatActivity() {
     lateinit var foodGRV: GridView
-    lateinit var foodList: List<GridViewModal>
+    lateinit var foodGRVAdapter: GridAdapter
+    lateinit var foodList: ArrayList<GridViewModal>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +23,21 @@ class StoreMainActivity : AppCompatActivity() {
 
         //Codigo relacionado al gridview
         foodGRV = findViewById(R.id.idGRV)
-        val foodAdapter = obtenerElementosGridView()
-        foodGRV.adapter = foodAdapter
+
+        foodList = ArrayList()
+
+        foodGRVAdapter = GridAdapter(this, foodList)
+
+        foodGRV.adapter = foodGRVAdapter
+
+        foodList.add(GridViewModal("Chilaquiles", R.drawable.chilaquiles))
+        foodList.add(GridViewModal("Enfrijoladas", R.drawable.enfrijoladas))
+        foodList.add(GridViewModal("Sopes", R.drawable.sopes))
+        foodList.add(GridViewModal("Tacos", R.drawable.taco))
+        foodList.add(GridViewModal("Pizza", R.drawable.pizza))
+
+
+        foodGRVAdapter.notifyDataSetChanged()
         foodGRV.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             /*
             Toast.makeText(
@@ -48,12 +63,35 @@ class StoreMainActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String): Boolean {
                 Log.e("TAG", " new text ==> $newText")
-                var gridAdapter: GridAdapter
-
+                filter(newText)
                 return true
             }
         })
         return true
+    }
+
+    private fun filter(text: String) {
+        // creating a new array list to filter our data.
+        val filteredlist: ArrayList<GridViewModal> = ArrayList()
+
+        // running a for loop to compare elements.
+        for (item in foodList) {
+            // checking if the entered string matched with any item of our recycler view.
+            if (item.foodName.toLowerCase().contains(text.toLowerCase())) {
+                // if the item is matched we are
+                // adding it to our filtered list.
+                filteredlist.add(item)
+            }
+        }
+        if (filteredlist.isEmpty()) {
+            // if no item is added in filtered list we are
+            // displaying a toast message as no data found.
+            Toast.makeText(this, "No Data Found..", Toast.LENGTH_SHORT).show()
+        } else {
+            // at last we are passing that filtered
+            // list to our adapter class.
+            foodGRVAdapter.filterList(filteredlist)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -78,18 +116,5 @@ class StoreMainActivity : AppCompatActivity() {
     fun lanzarShoppingCart(view: View? = null) {
         val i = Intent(this, CartActivity::class.java)
         startActivity(i)
-    }
-    private fun obtenerElementosGridView(): GridAdapter {
-        foodList = ArrayList()
-
-        // on below line we are adding data to
-        // our food list with image and food name.
-        foodList = foodList + GridViewModal("Chilaquiles", R.drawable.chilaquiles)
-        foodList = foodList + GridViewModal("Enfrijoladas", R.drawable.enfrijoladas)
-        foodList = foodList + GridViewModal("Sopes", R.drawable.sopes)
-        foodList = foodList + GridViewModal("Tacos", R.drawable.taco)
-        foodList = foodList + GridViewModal("Pizza", R.drawable.pizza)
-
-        return GridAdapter(foodList = foodList, this@StoreMainActivity, foodList)
     }
 }

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.*
 
 
-class GridAdapter(private var foodList: List<GridViewModal>, private val context: Context, private  val foodListFilter: List<GridViewModal>) : BaseAdapter(), Filterable {
+class GridAdapter(private val context: Context, private var foodList: ArrayList<GridViewModal>) : BaseAdapter(), Filterable {
     // in base adapter class we are creating variables
     // for layout inflater, course image view and course text view.
     private var layoutInflater: LayoutInflater? = null
@@ -62,12 +62,12 @@ class GridAdapter(private var foodList: List<GridViewModal>, private val context
             override fun performFiltering(p0: CharSequence?): FilterResults? {
                 val filterResults: FilterResults = FilterResults()
                 if (p0 == null || (p0.length) == 0) {
-                    filterResults.count = foodListFilter.size
-                    filterResults.values = foodListFilter
+                    filterResults.count = foodList.size
+                    filterResults.values = foodList
                 }else{
                     val searchChr: String = p0.toString().toLowerCase()
                     var searchResult: List<GridViewModal> = ArrayList()
-                    for (gridViewModal: GridViewModal in foodListFilter) {
+                    for (gridViewModal: GridViewModal in foodList) {
                         if(gridViewModal.foodName.contains(searchChr)){
                             searchResult += gridViewModal
                         }
@@ -79,10 +79,18 @@ class GridAdapter(private var foodList: List<GridViewModal>, private val context
             }
 
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-                foodList = p1?.values as List<GridViewModal>
+                foodList = p1?.values as ArrayList<GridViewModal>
                 notifyDataSetChanged()
             }
         }
         return filter
+    }
+    fun filterList(filterlist: ArrayList<GridViewModal>) {
+        // below line is to add our filtered
+        // list in our course array list.
+        foodList = filterlist
+        // below line is to notify our adapter
+        // as change in recycler view data.
+        notifyDataSetChanged()
     }
 }
