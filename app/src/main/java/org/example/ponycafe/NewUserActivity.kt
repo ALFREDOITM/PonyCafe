@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import org.example.ponycafe.databinding.ActivityNewUserBinding
 import java.util.*
 
@@ -24,6 +27,9 @@ class NewUserActivity : AppCompatActivity() {
         val questions2=ArrayAdapter<String>(this,
             android.R.layout.simple_spinner_dropdown_item)
 
+        val database=Firebase.database
+        val myRef=database.reference
+
         questions1.addAll((Arrays.asList("Selecciona una pregunta","¿En qué lugar nació tu madre?",
         "¿En qué primaria ibas?",
         "¿A que edad fue tu primer beso?",
@@ -38,12 +44,21 @@ class NewUserActivity : AppCompatActivity() {
             "Nombre de tu primer mascota.")))
         viewBinding.spinSecureQuestions2.adapter=questions2
 
-        userTypes.addAll(Arrays.asList("Selecciona un tipo de usuario","Estudiante","Personal del Plantel"))
+        userTypes.addAll(Arrays.asList("Selecciona un tipo de usuario","Estudiante","Personal del Plantel" ))
         viewBinding.spinUsertype.adapter=userTypes
     }
 
     fun launchLogin(view: View?) {
         val start = Intent(this, MainActivity::class.java)
         startActivity(start)
+        registerUser()
+    }
+
+    fun registerUser(){
+        val database=Firebase.database
+        val myRef=database.reference
+
+        myRef.setValue(NewUser("Alfredo", "Sanchez","Izquierdo","alfre", "pass123","alfred@pony.com"))
+        Toast.makeText(this, "usuario creado con exito",Toast.LENGTH_SHORT).show();
     }
 }

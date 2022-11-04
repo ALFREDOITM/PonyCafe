@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         //firebase
         val database=Firebase.database
         val myRef =database.reference
-        myRef.child("ejemplo").setValue("Hola mundo ")
+        //myRef.child("ejemplo").setValue("Hola mundo ")
 
 
         findViewById<Button>(R.id.boton1).setOnClickListener {
