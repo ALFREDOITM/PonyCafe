@@ -12,7 +12,7 @@ import org.example.ponycafe.databinding.ActivityNewUserBinding
 import java.util.*
 
 class NewUserActivity : AppCompatActivity() {
-
+    var id=0
     private lateinit var viewBinding: ActivityNewUserBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +58,8 @@ class NewUserActivity : AppCompatActivity() {
         val database=Firebase.database
         val myRef=database.reference
 
-        myRef.setValue(NewUser("Alfredo", "Sanchez","Izquierdo","alfre", "pass123","alfred@pony.com"))
+        myRef.child("users").child(id.toString()).setValue(NewUser("Alfredo", "Sanchez","Izquierdo","alfre", "pass123","alfred@pony.com"))
+        id += 1
         Toast.makeText(this, "usuario creado con exito",Toast.LENGTH_SHORT).show();
     }
 }
