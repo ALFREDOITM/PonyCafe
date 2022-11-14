@@ -59,7 +59,7 @@ class NewUserActivity : AppCompatActivity() {
         val fatherLN = viewBinding.etFatherLastName.text.toString()
         val motherLN = viewBinding.etMotherLastName.text.toString()
         val bDate = viewBinding.calendarView.date.toString()
-        val user = viewBinding.etUser.text.toString()
+        val user = viewBinding.etUser.text.toString().uppercase(Locale.getDefault())
         val pass = viewBinding.etPassword.text.toString()
         val type = viewBinding.spinUsertype.selectedItem.toString()
         val email = viewBinding.etEmail.text.toString()
