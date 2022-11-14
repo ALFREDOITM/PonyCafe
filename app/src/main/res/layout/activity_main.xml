@@ -131,18 +131,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tvRegister"
         android:layout_marginBottom="30dp"/>
 
-    <!--<Button
+    <Button
         android:id="@+id/boton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/buttonLoginStyle"
         android:text="Login Admin"
-        app:layout_constraintLeft_toRightOf="@+id/boton1"
-        app:layout_constraintRight_toLeftOf="@+id/boton3"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRegister"
+        app:layout_constraintTop_toBottomOf="@id/boton1"
+        app:layout_constraintRight_toRightOf="parent"
         />
-    <Button
+    <!--<Button
         android:id="@+id/boton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

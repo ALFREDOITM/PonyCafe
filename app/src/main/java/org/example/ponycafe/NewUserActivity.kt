@@ -3,13 +3,10 @@ package org.example.ponycafe
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import org.example.ponycafe.databinding.ActivityNewUserBinding
 import java.util.*
 
@@ -54,7 +51,7 @@ class NewUserActivity : AppCompatActivity() {
         }
     }
 
-    fun registerUser(){
+    private fun registerUser(){
         val name = viewBinding.etName.text.toString()
         val fatherLN = viewBinding.etFatherLastName.text.toString()
         val motherLN = viewBinding.etMotherLastName.text.toString()
@@ -71,11 +68,11 @@ class NewUserActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().getReference("users")
         val User = User(name, fatherLN, motherLN, bDate, user, pass, type, email, quest1, answ1, quest2, answ2)
         database.child(user).setValue(User).addOnSuccessListener {
-            Toast.makeText(this, "usuario creado con exito",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "usuario creado con exito",Toast.LENGTH_SHORT).show()
             val start = Intent(this, MainActivity::class.java)
             startActivity(start)
         }.addOnFailureListener{
-            Toast.makeText(this, "Error",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error",Toast.LENGTH_SHORT).show()
         }
 
         //myRef.child("users").child(id.toString()).setValue(NewUser("Alfredo", "Sanchez","Izquierdo","alfre", "pass123","alfred@pony.com"))
