@@ -24,21 +24,12 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.boton1).setOnClickListener {
             startStoreMain()
         }
-        findViewById<Button>(R.id.boton2).setOnClickListener{
-            startAdminMode()
-        }
     }
 
     private fun startStoreMain() {
         val i = Intent(this, StoreMainActivity::class.java)
         startActivity(i)
     }
-
-    private fun startAdminMode() {
-        val i = Intent(this, AdminActivity::class.java)
-        startActivity(i)
-    }
-
     fun launchRegister(view: View?) {
         val start = Intent(this, NewUserActivity::class.java)
         startActivity(start)

@@ -38,10 +38,6 @@
             android:name=".CartActivity"
             android:theme="@style/Theme2.UserInterface" />
         <activity android:name=".RecoverPassword" />
-        <activity
-            android:name=".AdminActivity"
-            android:theme="@style/Theme2.UserInterface"
-            />
     </application>
 
 </manifest>
