@@ -11,11 +11,14 @@ import android.widget.GridView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.SearchView
 import android.widget.Toast
+import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
 
 class StoreMainActivity : AppCompatActivity() {
     lateinit var foodGRV: GridView
     lateinit var foodGRVAdapter: GridAdapter
-    lateinit var foodList: ArrayList<GridViewModal>
+    lateinit var foodList: ArrayList<MenuModal>
+    lateinit var dbref : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +33,12 @@ class StoreMainActivity : AppCompatActivity() {
 
         foodGRV.adapter = foodGRVAdapter
 
-        foodList.add(GridViewModal("Chilaquiles", R.drawable.chilaquiles))
-        foodList.add(GridViewModal("Enfrijoladas", R.drawable.enfrijoladas))
-        foodList.add(GridViewModal("Sopes", R.drawable.sopes))
-        foodList.add(GridViewModal("Tacos", R.drawable.taco))
-        foodList.add(GridViewModal("Pizza", R.drawable.pizza))
-
+        //foodList.add(MenuModal("Chilaquiles", ""))
+        //foodList.add(MenuModal("Enfrijoladas", ""))
+        //foodList.add(MenuModal("Sopes", ""))
+        //foodList.add(MenuModal("Tacos", ""))
+        //foodList.add(MenuModal("Pizza", ""))
+        getMenuData()
 
         foodGRVAdapter.notifyDataSetChanged()
         foodGRV.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
@@ -72,12 +75,12 @@ class StoreMainActivity : AppCompatActivity() {
 
     private fun filter(text: String) {
         // creating a new array list to filter our data.
-        val filteredlist: ArrayList<GridViewModal> = ArrayList()
+        val filteredlist: ArrayList<MenuModal> = ArrayList()
 
         // running a for loop to compare elements.
         for (item in foodList) {
             // checking if the entered string matched with any item of our recycler view.
-            if (item.foodName.toLowerCase().contains(text.toLowerCase())) {
+            if (item.name?.toLowerCase()!!.contains(text.toLowerCase())) {
                 // if the item is matched we are
                 // adding it to our filtered list.
                 filteredlist.add(item)
@@ -116,5 +119,27 @@ class StoreMainActivity : AppCompatActivity() {
     fun lanzarShoppingCart(view: View? = null) {
         val i = Intent(this, CartActivity::class.java)
         startActivity(i)
+    }
+
+    private fun getMenuData(){
+        dbref = FirebaseDatabase.getInstance().getReference("menu")
+        dbref.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    for (menuSnapshot in snapshot.children){
+                        val menu = menuSnapshot.getValue(MenuModal::class.java)
+                        foodList.add(menu!!)
+                    }
+                }
+                foodGRVAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
+    private fun getMenuData2(){
+        dbref = FirebaseDatabase.getInstance().getReference("menu")
     }
 }

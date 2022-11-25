@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.squareup.picasso.Picasso
 
 
-class GridAdapter(private val context: Context, private var foodList: ArrayList<GridViewModal>) : BaseAdapter(), Filterable {
+class GridAdapter(private val context: Context, private var foodList: ArrayList<MenuModal>) : BaseAdapter(), Filterable {
     // in base adapter class we are creating variables
     // for layout inflater, course image view and course text view.
     private var layoutInflater: LayoutInflater? = null
@@ -50,9 +51,10 @@ class GridAdapter(private val context: Context, private var foodList: ArrayList<
         foodIV = convertView!!.findViewById(R.id.idIvGrid)
         foodTV = convertView!!.findViewById(R.id.idTvGrid)
         // on below line we are setting image for our course image view.
-        foodIV.setImageResource(foodList[position].foodImg)
+        //foodIV.setImageResource(foodList[position].img)
+        Picasso.get().load(foodList[position].img).into(foodIV)
         // on below line we are setting text in our course text view.
-        foodTV.text = foodList[position].foodName
+        foodTV.text = foodList[position].name
         // at last we are returning our convert view.
         return convertView
     }
@@ -66,9 +68,9 @@ class GridAdapter(private val context: Context, private var foodList: ArrayList<
                     filterResults.values = foodList
                 }else{
                     val searchChr: String = p0.toString().toLowerCase()
-                    var searchResult: List<GridViewModal> = ArrayList()
-                    for (gridViewModal: GridViewModal in foodList) {
-                        if(gridViewModal.foodName.contains(searchChr)){
+                    var searchResult: List<MenuModal> = ArrayList()
+                    for (gridViewModal: MenuModal in foodList) {
+                        if(gridViewModal.name?.contains(searchChr)!!){
                             searchResult += gridViewModal
                         }
                     }
@@ -79,13 +81,13 @@ class GridAdapter(private val context: Context, private var foodList: ArrayList<
             }
 
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-                foodList = p1?.values as ArrayList<GridViewModal>
+                foodList = p1?.values as ArrayList<MenuModal>
                 notifyDataSetChanged()
             }
         }
         return filter
     }
-    fun filterList(filterlist: ArrayList<GridViewModal>) {
+    fun filterList(filterlist: ArrayList<MenuModal>) {
         // below line is to add our filtered
         // list in our course array list.
         foodList = filterlist

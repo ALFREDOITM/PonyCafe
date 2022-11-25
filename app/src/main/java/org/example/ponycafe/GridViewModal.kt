@@ -5,5 +5,5 @@ data class GridViewModal(
     // one is course name as string and
     // other course img as int.
     val foodName: String,
-    val foodImg: Int
+    val foodImg: String
 )

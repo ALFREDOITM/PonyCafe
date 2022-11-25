@@ -15,12 +15,6 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //firebase
-        val database=Firebase.database
-        val myRef =database.reference
-        //myRef.child("ejemplo").setValue("Hola mundo ")
-
-
         findViewById<Button>(R.id.boton1).setOnClickListener {
             startStoreMain()
         }
