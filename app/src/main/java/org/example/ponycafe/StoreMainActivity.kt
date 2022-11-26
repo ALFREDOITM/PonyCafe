@@ -24,20 +24,11 @@ class StoreMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store_main)
 
-        //Codigo relacionado al gridview
         foodGRV = findViewById(R.id.idGRV)
-
         foodList = ArrayList()
-
         foodGRVAdapter = GridAdapter(this, foodList)
-
         foodGRV.adapter = foodGRVAdapter
 
-        //foodList.add(MenuModal("Chilaquiles", ""))
-        //foodList.add(MenuModal("Enfrijoladas", ""))
-        //foodList.add(MenuModal("Sopes", ""))
-        //foodList.add(MenuModal("Tacos", ""))
-        //foodList.add(MenuModal("Pizza", ""))
         getMenuData()
 
         foodGRVAdapter.notifyDataSetChanged()
@@ -49,7 +40,10 @@ class StoreMainActivity : AppCompatActivity() {
             ).show()
             */
             val intent = Intent(this, SelectedItemActivity::class.java)
-            intent.putExtra("item", position)
+            intent.putExtra("name", foodList[position].name)
+            intent.putExtra("desc", foodList[position].desc)
+            intent.putExtra("cost", foodList[position].cost)
+            intent.putExtra("img", foodList[position].img)
             startActivityForResult(intent,1)
         }
     }
@@ -76,8 +70,6 @@ class StoreMainActivity : AppCompatActivity() {
     private fun filter(text: String) {
         // creating a new array list to filter our data.
         val filteredlist: ArrayList<MenuModal> = ArrayList()
-
-        // running a for loop to compare elements.
         for (item in foodList) {
             // checking if the entered string matched with any item of our recycler view.
             if (item.name?.toLowerCase()!!.contains(text.toLowerCase())) {
@@ -89,14 +81,15 @@ class StoreMainActivity : AppCompatActivity() {
         if (filteredlist.isEmpty()) {
             // if no item is added in filtered list we are
             // displaying a toast message as no data found.
+            foodGRVAdapter.filterList(filteredlist)
             Toast.makeText(this, "No Data Found..", Toast.LENGTH_SHORT).show()
         } else {
             // at last we are passing that filtered
             // list to our adapter class.
             foodGRVAdapter.filterList(filteredlist)
         }
-    }
 
+    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.shopping_cart -> {
