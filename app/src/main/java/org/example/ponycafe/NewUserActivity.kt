@@ -78,9 +78,7 @@ class NewUserActivity : AppCompatActivity() {
         val name = viewBinding.etName.text.toString()
         val fatherLN = viewBinding.etFatherLastName.text.toString()
         val motherLN = viewBinding.etMotherLastName.text.toString()
-        val bDate = viewBinding.calendarView.date.toString()
         val user = viewBinding.etUser.text.toString().uppercase(Locale.getDefault())
-        val pass = "a2352bhbjhj"
         val type = viewBinding.spinUsertype.selectedItem.toString()
         val email = viewBinding.etEmail.text.toString()
         val quest1 = viewBinding.spinSecureQuestions.selectedItem.toString()
@@ -89,7 +87,7 @@ class NewUserActivity : AppCompatActivity() {
         val answ2 = viewBinding.etAnswer2.text.toString()
 
         database = FirebaseDatabase.getInstance().getReference("users")
-        val User = User(name, fatherLN, motherLN, bDate, user, pass, type, email, quest1, answ1, quest2, answ2)
+        val User = User(name, fatherLN, motherLN, user, type, email, quest1, answ1, quest2, answ2, "0")
         database.child(uid).setValue(User).addOnSuccessListener {
             Toast.makeText(this, "usuario creado con exito",Toast.LENGTH_SHORT).show()
             val start = Intent(this, MainActivity::class.java)

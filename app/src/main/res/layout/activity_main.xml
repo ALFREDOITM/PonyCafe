@@ -131,34 +131,5 @@
         app:layout_constraintTop_toBottomOf="@+id/tvRegister"
         android:layout_marginBottom="30dp"/>
 
-    <!--<Button
-        android:id="@+id/boton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/buttonLoginStyle"
-        android:text="Login Admin"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/boton1"
-        app:layout_constraintRight_toRightOf="parent"
-        />
-    <Button
-        android:id="@+id/boton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/buttonLoginStyle"
-        android:text="Login Kitchen"
-        app:layout_constraintLeft_toRightOf="@+id/boton2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRegister"/>
-    <Button
-        android:id="@+id/boton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User Profile"
-        app:layout_constraintBottom_toTopOf="@+id/boton1"
-        style="@style/buttonLoginStyle"
-        app:layout_constraintRight_toRightOf="@+id/boton1"
-        android:onClick="userProfile"/> -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
