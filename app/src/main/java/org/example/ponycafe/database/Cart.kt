@@ -8,7 +8,8 @@ class Cart(
     cart_cost: Int,
     cart_quantity: Int,
     cart_observ: String,
-    cart_user: String
+    cart_user: String,
+    cart_img: String
 ) {
     val cart_id: String = cart_id
     val cart_name: String =cart_name
@@ -16,6 +17,7 @@ class Cart(
     val cart_quantity: Int = cart_quantity
     val cart_observ: String = cart_observ
     val cart_user: String = cart_user
+    val cart_img: String = cart_img
 }
 
 fun Cart.toEntity() = CartEntity(
@@ -24,5 +26,6 @@ fun Cart.toEntity() = CartEntity(
     cart_cost,
     cart_quantity,
     cart_observ,
-    cart_user
+    cart_user,
+    cart_img
 )
