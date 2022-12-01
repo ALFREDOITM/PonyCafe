@@ -50,6 +50,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:maxLines="4"
         android:hint="Agregar instrucciones: Ej. Con bistec, sin chile, etc..."
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
