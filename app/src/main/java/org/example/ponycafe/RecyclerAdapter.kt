@@ -20,8 +20,8 @@ class RecyclerAdapter(private val cartList : ArrayList<CartModal>) : RecyclerVie
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = cartList[position]
         holder.cartName.text = currentItem.name
-        holder.cartCost.text = currentItem.cost.toString()
-        holder.cartQuantity.text = currentItem.quantity.toString()
+        holder.cartCost.text = "Costo: $" + currentItem.cost.toString()
+        holder.cartQuantity.text = "Cantidad: " + currentItem.quantity.toString()
         holder.cartObserv.text = currentItem.observ
         Picasso.get().load(currentItem.img).into(holder.cartImg)
     }

@@ -5,9 +5,10 @@ import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
-import androidx.activity.viewModels
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import org.example.ponycafe.databinding.ActivitySelectedItemBinding
 
 class SelectedItemActivity : AppCompatActivity() {
@@ -50,22 +51,30 @@ class SelectedItemActivity : AppCompatActivity() {
         }
         //click listener para el boton de mandar a carrito
         binding.itemBTN1.setOnClickListener{
-            uploadData()
+            var quant = binding.itemQuanEt1.text.toString()
+            var obser = binding.editTextTextMultiLine2.text.toString()
+            val user = Firebase.auth.currentUser
+            user?.let {
+                val uid = user.uid
+                //Log.e("TAG",uid)
+                uploadData(uid, name, cost, quant, obser, img)
+            }
         }
     }
-    private fun uploadData(i: String) {
-        val name = binding.etFName.text.toString()
-        val desc = binding.etFDesc.text.toString()
-        val cost = binding.etFCost.text.toString().toInt()
+    private fun uploadData(
+        uid: String,
+        name: String,
+        cost: Int,
+        quant: String,
+        obser: String,
+        img: String
+    ) {
 
-        database = FirebaseDatabase.getInstance().getReference("menu")
-        val item = MenuItem(name, desc, cost, i)
+        database = FirebaseDatabase.getInstance().getReference("cart")
+        val item = CartModal(uid, name, cost, quant.toInt(), obser, img)
 
         database.child(name).setValue(item).addOnSuccessListener {
-            Toast.makeText(this, "Subido de manera exitosa", Toast.LENGTH_SHORT).show()
-            binding.etFName.text = null
-            binding.etFDesc.text = null
-            binding.etFCost.text = null
+            Toast.makeText(this, "Agregado a carrito", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener{
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
         }

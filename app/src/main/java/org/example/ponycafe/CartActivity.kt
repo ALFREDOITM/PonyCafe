@@ -1,15 +1,14 @@
 package org.example.ponycafe
 
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
+import com.google.firebase.database.*
 
 class CartActivity: AppCompatActivity() {
 
+    private  lateinit var dbref: DatabaseReference
     private lateinit var newRecyclerView: RecyclerView
     private lateinit var newArrayList: ArrayList<CartModal>
 
@@ -23,12 +22,26 @@ class CartActivity: AppCompatActivity() {
 
         newArrayList = arrayListOf<CartModal>()
 
-        newArrayList.add(CartModal())
-        newArrayList.add(CartModal())
-        newArrayList.add(CartModal())
-        newArrayList.add(CartModal())
-        newArrayList.add(CartModal())
+        getUserData()
 
-        newRecyclerView.adapter = RecyclerAdapter(newArrayList)
+    }
+
+    private fun getUserData() {
+        dbref = FirebaseDatabase.getInstance().getReference("cart")
+        dbref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    for (cartSnapshot in snapshot.children){
+                        val cart = cartSnapshot.getValue(CartModal::class.java)
+                        newArrayList.add(cart!!)
+                    }
+                    newRecyclerView.adapter = RecyclerAdapter(newArrayList)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 }
