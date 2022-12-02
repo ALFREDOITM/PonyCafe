@@ -9,10 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import androidx.activity.viewModels
-import org.example.ponycafe.database.Cart
 
 class SelectedItemActivity : AppCompatActivity() {
-    private val mainViewModel: MainViewModel by viewModels()
     private var menuModal2: MenuModal2? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,20 +46,9 @@ class SelectedItemActivity : AppCompatActivity() {
             num += 1
             findViewById<TextView>(R.id.itemQuanEt1).text = num.toString()
         }
+        //click listener para el boton de mandar a carrito
         findViewById<Button>(R.id.itemBTN1).setOnClickListener{
-            //agregar condicion if para evitar que agregue en caso de ser 0 quantity
-            var quantity = findViewById<TextView>(R.id.itemQuanEt1).text.toString().toInt()
-            if(quantity != 0){
-                var observ = findViewById<EditText>(R.id.editTextTextMultiLine2).text.toString()
-                mainViewModel.saveCart(Cart(
-                    "0001",
-                    name,
-                    cost,
-                    quantity,
-                    observ,
-                    img
-                ))
-            }
+
         }
     }
 }

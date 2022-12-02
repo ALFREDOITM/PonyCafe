@@ -12,7 +12,6 @@ class CartActivity: AppCompatActivity() {
 
     private lateinit var newRecyclerView: RecyclerView
     private lateinit var newArrayList: ArrayList<CartModal>
-    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,20 +23,7 @@ class CartActivity: AppCompatActivity() {
 
         newArrayList = arrayListOf<CartModal>()
 
+        newArrayList.add(CartModal())
 
-        mainViewModel.getCart()
-        //Nota:
-        //si es en un fragment
-        //es con viewLifecycleOwner en lugar de this
-        mainViewModel.savedCart.observe(this, {cartList ->
-            if(!cartList.isNullOrEmpty()){
-                for(cart in cartList){
-                    //Log.d("thesearetheusers", cart.cart_name)
-                    newArrayList.add(CartModal(cart.cart_name, cart.cart_cost, cart.cart_quantity, cart.cart_observ, cart.cart_img))
-                }
-            }else{
-                Log.d("thesearetheusers", "null or empty")
-            }
-        } )
     }
 }
