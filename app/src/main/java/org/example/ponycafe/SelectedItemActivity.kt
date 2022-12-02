@@ -2,19 +2,22 @@ package org.example.ponycafe
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import androidx.activity.viewModels
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import org.example.ponycafe.databinding.ActivitySelectedItemBinding
 
 class SelectedItemActivity : AppCompatActivity() {
+    lateinit var binding : ActivitySelectedItemBinding
+    lateinit var database : DatabaseReference
     private var menuModal2: MenuModal2? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_selected_item)
+        binding = ActivitySelectedItemBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         var name = ""
         var desc = ""
@@ -28,27 +31,43 @@ class SelectedItemActivity : AppCompatActivity() {
             desc = menuModal2?.desc.toString()
             cost = menuModal2?.cost!!
             img = menuModal2?.img.toString()
-            findViewById<TextView>(R.id.itemTV1).text = name
-            findViewById<TextView>(R.id.itemTV2).text = desc
-            findViewById<TextView>(R.id.itemTV3).text = "$" + (cost.toString())
-            val imgVW = findViewById<ImageView>(R.id.itemIV1)
-            Picasso.get().load(img).into(imgVW)
+            binding.itemTV1.text = name
+            binding.itemTV2.text = desc
+            binding.itemTV3.text = "$" + (cost.toString())
+            Picasso.get().load(img).into(binding.itemIV1)
         }
-        findViewById<Button>(R.id.removeBtn1).setOnClickListener{
-            var num = findViewById<TextView>(R.id.itemQuanEt1).text.toString().toInt()
+        binding.removeBtn1.setOnClickListener{
+            var num = binding.itemQuanEt1.text.toString().toInt()
             if(num != 0){
                 num -= 1
-                findViewById<TextView>(R.id.itemQuanEt1).text = num.toString()
+                binding.itemQuanEt1.text = num.toString()
             }
         }
-        findViewById<Button>(R.id.addBtn1).setOnClickListener{
-            var num = findViewById<TextView>(R.id.itemQuanEt1).text.toString().toInt()
+        binding.addBtn1.setOnClickListener{
+            var num = binding.itemQuanEt1.text.toString().toInt()
             num += 1
-            findViewById<TextView>(R.id.itemQuanEt1).text = num.toString()
+            binding.itemQuanEt1.text = num.toString()
         }
         //click listener para el boton de mandar a carrito
-        findViewById<Button>(R.id.itemBTN1).setOnClickListener{
+        binding.itemBTN1.setOnClickListener{
+            uploadData()
+        }
+    }
+    private fun uploadData(i: String) {
+        val name = binding.etFName.text.toString()
+        val desc = binding.etFDesc.text.toString()
+        val cost = binding.etFCost.text.toString().toInt()
 
+        database = FirebaseDatabase.getInstance().getReference("menu")
+        val item = MenuItem(name, desc, cost, i)
+
+        database.child(name).setValue(item).addOnSuccessListener {
+            Toast.makeText(this, "Subido de manera exitosa", Toast.LENGTH_SHORT).show()
+            binding.etFName.text = null
+            binding.etFDesc.text = null
+            binding.etFCost.text = null
+        }.addOnFailureListener{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
         }
     }
 }

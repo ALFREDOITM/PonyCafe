@@ -24,6 +24,11 @@ class CartActivity: AppCompatActivity() {
         newArrayList = arrayListOf<CartModal>()
 
         newArrayList.add(CartModal())
+        newArrayList.add(CartModal())
+        newArrayList.add(CartModal())
+        newArrayList.add(CartModal())
+        newArrayList.add(CartModal())
 
+        newRecyclerView.adapter = RecyclerAdapter(newArrayList)
     }
 }
