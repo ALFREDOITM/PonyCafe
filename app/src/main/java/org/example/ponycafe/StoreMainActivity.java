@@ -102,11 +102,13 @@ public class StoreMainActivity extends AppCompatActivity {
     private void lanzarUserProfile() {
         Intent intent = new Intent(this, UserProfile.class);
         startActivity(intent);
+        finish();
     }
 
     private void lanzarShoppingCart() {
         Intent intent = new Intent(this, CartActivity.class);
         startActivity(intent);
+
     }
 
     public class MenuAdapter extends BaseAdapter implements Filterable {

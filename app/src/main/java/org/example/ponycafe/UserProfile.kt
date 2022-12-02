@@ -68,10 +68,12 @@ class UserProfile : AppCompatActivity() {
         FirebaseAuth.getInstance().signOut()
         val start = Intent(this, LoginActivity::class.java)
         startActivity(start)
+        finish()
     }
 
     fun changePass(view: View?) {
         val start = Intent(this, ChangePassword::class.java)
         startActivity(start)
+
     }
 }
