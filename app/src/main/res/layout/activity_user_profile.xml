@@ -27,19 +27,13 @@
             android:layout_marginTop="40dp"
             android:text="Pony Creditos:"
             android:textSize="18sp" />
-        <EditText
+        <TextView
             android:id="@+id/etCredit"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:hint="500"
-            android:inputType="text"
-            android:maxLines="1"
-            android:clickable="false"
-            android:focusable="false"
-            android:cursorVisible="false"
-            android:focusableInTouchMode="false"/>
+            android:hint="500"/>
 
         <TextView
             android:id="@+id/tvName"
@@ -50,19 +44,13 @@
             android:text="Nombre(s):"
             android:textSize="18sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/etName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:hint="Nombre(s)"
-            android:inputType="text"
-            android:maxLines="1"
-            android:clickable="false"
-            android:focusable="false"
-            android:cursorVisible="false"
-            android:focusableInTouchMode="false"/>
+            android:hint="charly"/>
 
         <TextView
             android:id="@+id/tvFatherLastName"
@@ -73,19 +61,13 @@
             android:text="Apellido Paterno:"
             android:textSize="18sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/etFatherLastName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:hint="Apellido Paterno"
-            android:inputType="text"
-            android:maxLines="1"
-            android:clickable="false"
-            android:focusable="false"
-            android:cursorVisible="false"
-            android:focusableInTouchMode="false"/>
+            android:hint="sd"/>
 
         <TextView
             android:id="@+id/tvMotherLastName"
@@ -96,45 +78,13 @@
             android:text="Apellido Materno:"
             android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/etMotherLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:hint="Apellido Materno"
-            android:inputType="text"
-            android:maxLines="1"
-            android:clickable="false"
-            android:focusable="false"
-            android:cursorVisible="false"
-            android:focusableInTouchMode="false"/>
-
         <TextView
-            android:id="@+id/tvUser"
+            android:id="@+id/etMotherLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:inputType="text"
-            android:maxLines="1"
-            android:text="Usuario:"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/etUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:hint="Usuario"
-            android:inputType="text"
-            android:maxLines="1"
-            android:clickable="false"
-            android:focusable="false"
-            android:cursorVisible="false"
-            android:focusableInTouchMode="false"/>
-
+            android:hint="es"/>
 
         <TextView
             android:id="@+id/tvEmail"
@@ -146,28 +96,13 @@
             android:text="Correo Electrónico:"
             android:textSize="18sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/etEmail"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginBottom="25dp"
-            android:hint="mail@pony.com"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:clickable="false"
-            android:focusable="false"
-            android:cursorVisible="false"
-            android:focusableInTouchMode="false"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/buttonCrudStyle"
-            android:text="Modificar Datos"
-            android:layout_gravity="center"
-            />
+            android:hint="500@mail.com"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -179,6 +114,7 @@
             />
 
         <Button
+            android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/buttonCrudStyle"
