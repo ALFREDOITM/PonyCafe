@@ -66,7 +66,7 @@ class UserProfile : AppCompatActivity() {
 
     fun launchLogin(view: View?) {
         FirebaseAuth.getInstance().signOut()
-        val start = Intent(this, MainActivity::class.java)
+        val start = Intent(this, LoginActivity::class.java)
         startActivity(start)
     }
 

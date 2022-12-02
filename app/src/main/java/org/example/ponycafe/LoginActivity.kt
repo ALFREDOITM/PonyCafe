@@ -33,6 +33,8 @@ class LoginActivity : AppCompatActivity() {
                             alert()
                         }
                     }
+            }else {
+                Toast.makeText(this,"Ingresa datos de inicio",Toast.LENGTH_SHORT).show()
             }
         }
     }
