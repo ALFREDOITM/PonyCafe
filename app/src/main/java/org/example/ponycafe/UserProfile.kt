@@ -30,7 +30,7 @@ class UserProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingUser=ActivityUserProfileBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_user_profile)
+        setContentView(bindingUser.root)
         database=Firebase.database.reference
 
         val user = Firebase.auth.currentUser
@@ -45,8 +45,8 @@ class UserProfile : AppCompatActivity() {
                 val ponycreditos=it.child("ponycreditos").value
                 val name=it.child("name").value
                 val email=it.child("email").value
-                val fatherLastName=it.child("fatherLastName").value
-                val motherLastName=it.child("motherLastName").value
+                val fatherLastName=it.child("fatherLN").value
+                val motherLastName=it.child("motherLN").value
 
                 bindingUser.etName.text=name.toString()
                 bindingUser.etEmail.text=email.toString()
