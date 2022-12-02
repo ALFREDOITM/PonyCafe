@@ -39,7 +39,7 @@ class CartActivity: AppCompatActivity() {
                         i += 1
                     }
                     newRecyclerView.adapter = RecyclerAdapter(newArrayList)
-                    findViewById<TextView>(R.id.tv567).text = "TOTAL: $" + total.toString()
+                    findViewById<TextView>(R.id.tv567).text = total.toString()
                 }
             }
 
