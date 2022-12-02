@@ -11,7 +11,7 @@ class DatabaseManager {
     }
 
     private fun createDb(context: Context){
-        database = Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME).build()
+            database = Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME).build()
     }
 
     companion object{
